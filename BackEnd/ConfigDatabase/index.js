@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todolist');
+mongoose.connect('mongodb://localhost:27017/todo-list');
 var database = mongoose.connection;
 database.on('error', console.error.bind(console, 'failed to connect database'));
 database.once('open', () => {
