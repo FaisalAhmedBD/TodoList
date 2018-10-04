@@ -16,10 +16,11 @@ const getTaskList = (req, res) => {
 
 const addNewTask = (req, res) => {
     console.log('req body : ', req.body);
-    const { id, task } = req.body;
+    const { id, task, status } = req.body;
     const newTask = new tasksModel({
         id,
-        task
+        task,
+        status
     });
     newTask.save(error => {
         if (error) {
@@ -29,7 +30,12 @@ const addNewTask = (req, res) => {
         res.send('New task successfully added');
     })
 }
+const changeTaskStatus = (req, res) => {
+    const { taskId } = req.body;
+
+}
 module.exports = {
     addNewTask,
-    getTaskList
+    getTaskList,
+    changeTaskStatus
 }
