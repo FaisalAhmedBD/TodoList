@@ -1,7 +1,21 @@
 var { tasksModel } = require('./model');
 
+const getTaskList = (req, res) => {
+    return tasksModel
+        .find({})
+        .then(taskList => {
+            res.send({
+                tasks: taskList
+            })
+        })
+        .catch(error => {
+            console.error(error);
+            res.send(`error while retriving tasks, error : ${error}`);
+        })
+}
+
 const addNewTask = (req, res) => {
-    console.log('req body : ',req.body);
+    console.log('req body : ', req.body);
     const { id, task } = req.body;
     const newTask = new tasksModel({
         id,
@@ -16,5 +30,6 @@ const addNewTask = (req, res) => {
     })
 }
 module.exports = {
-    addNewTask
+    addNewTask,
+    getTaskList
 }

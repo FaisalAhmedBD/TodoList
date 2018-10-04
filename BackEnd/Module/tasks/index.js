@@ -1,4 +1,5 @@
-var { addNewTask } = require('./controller');
+var { getTaskList, addNewTask } = require('./controller');
 module.exports = {
+    getTaskList,
     addNewTask
 }
