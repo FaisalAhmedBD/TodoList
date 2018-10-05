@@ -33,7 +33,7 @@ const addNewTask = (req, res) => {
             console.error(error);
             res.send('failed to save new task in database')
         }
-        res.redirect('http://localhost:3000');
+        res.redirect('http://localhost:3006');
     })
 }
 const changeTaskStatus = (req, res) => {

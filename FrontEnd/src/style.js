@@ -25,23 +25,33 @@ const styles = {
         padding: '0px'
     },
     finishedTaskStyle: {
+        width: '90%',
+        borderRadius: '5px',
         backgroundColor: '#00CEE9',
         color: '#ffffff',
         fontSize: '16px',
-        height: '55px',
+        height: '40px',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '15px',
+        padding: '0px',
+        paddingLeft: '2%',
+        textDecoration: 'line-through'
+    },
+    addStrikeThough: {
         textDecoration: 'line-through'
     },
     unfisnishedTaskStyle: {
         fontSize: '16px',
-        height: '55px',
+        height: '40px',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        padding: '15px'
+        padding: '0px',
+        paddingLeft: '2%',
+    },
+    inputFieldStyle: {
+        paddingLeft: '15px',
     }
 }
 export { styles };

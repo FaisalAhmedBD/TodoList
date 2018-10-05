@@ -1,0 +1,18 @@
+.addTask {
+    width: 90%;
+	font-size: 14px;
+    border: 1px solid rgba(246, 212, 73, 1);
+    border-radius: 5px;
+	color: rgba(45, 44, 49, 1);
+	padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.7rem;
+    margin-bottom: 1rem;
+	/* background-color: rgba(255, 252, 243, 1); */
+}
+.addTask:focus {
+	border-color: #00CEE9;
+    outline: 0;
+    background-color: #F8F8F8;
+	box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0);
+}

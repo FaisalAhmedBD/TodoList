@@ -5,7 +5,7 @@ import TaskList from './Components/taskList';
 import PageHeader from './Components/pageHeader';
 import AddNewTask from './Components/addTask';
 import TaskNumberIndicator from './Components/taskNumber'
-import { BASE_URL, VERSION, GET_TASK_LIST, ADD_TASK, CHANGE_TASK_STATUS } from './Url';
+import { GET_TASK_LIST, ADD_TASK, CHANGE_TASK_STATUS } from './Url';
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +38,8 @@ class TodoList extends React.Component {
                     totalTaskNumberStyle={styles.totalTaskNumberStyle}
                     finishedTaskNumberStyle={styles.finishedTaskNumberStyle} />
                 <AddNewTask
-                    url={ADD_TASK} />
+                    url={ADD_TASK}
+                    inputFieldStyle={styles.inputFieldStyle} />
                 <TaskList
                     tasks={tasks} />
             </div>
