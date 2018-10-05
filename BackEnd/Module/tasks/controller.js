@@ -23,18 +23,17 @@ const getTaskList = (req, res) => {
 
 const addNewTask = (req, res) => {
     console.log('req body : ', req.body);
-    const { id, task, status } = req.body;
+    const { task } = req.body;
     const newTask = new tasksModel({
-        id,
         task,
-        status
+        status: 1
     });
     newTask.save(error => {
         if (error) {
             console.error(error);
             res.send('failed to save new task in database')
         }
-        res.send('New task successfully added');
+        res.redirect('http://localhost:3000');
     })
 }
 const changeTaskStatus = (req, res) => {
