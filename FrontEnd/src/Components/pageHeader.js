@@ -1,7 +1,7 @@
 import React from 'react';
-export default ({ pageTitle }) => {
+export default ({ pageTitle, customStyle }) => {
     return (
-        <div>
+        <div style={customStyle}>
             <h1>{pageTitle}</h1>
         </div>
     )
