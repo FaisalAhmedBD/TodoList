@@ -1,7 +1,7 @@
 import React from 'react';
 import { styles } from '../style'
 import SingleTask from './singleTask';
-export default ({ tasks }) => {
+export default ({ tasks, changeTaskStatus }) => {
     let customStyle = {};
     return (
         tasks.map((task, index) => {
@@ -13,7 +13,8 @@ export default ({ tasks }) => {
                 <SingleTask
                     task={task}
                     index={index + 1}
-                    customStyle={customStyle} />
+                    customStyle={customStyle} 
+                    changeTaskStatus={changeTaskStatus}/>
             </ul>
         })
     )

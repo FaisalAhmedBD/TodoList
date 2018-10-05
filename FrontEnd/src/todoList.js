@@ -1,5 +1,5 @@
 import React from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import { styles } from './style'
 import TaskList from './Components/taskList';
 import PageHeader from './Components/pageHeader';
@@ -16,16 +16,9 @@ class TodoList extends React.Component {
         }
     }
     componentDidMount() {
-        Axios.get(GET_TASK_LIST)
-            .then(response => {
-                const { tasks, totalTask, finishedTask } = response.data;
-                this.setState({
-                    tasks: tasks,
-                    finishedTask: finishedTask,
-                    totalTask: totalTask
-                })
-            })
+        this.fetchData();
     }
+
     render() {
         const { tasks, totalTask, finishedTask } = this.state;
         return (
@@ -39,11 +32,39 @@ class TodoList extends React.Component {
                     finishedTaskNumberStyle={styles.finishedTaskNumberStyle} />
                 <AddNewTask
                     url={ADD_TASK}
-                    inputFieldStyle={styles.inputFieldStyle} />
+                />
                 <TaskList
-                    tasks={tasks} />
+                    tasks={tasks}
+                    changeTaskStatus={this.changeTaskStatus} />
             </div>
         )
+    }
+    fetchData = () => {
+        axios.get(GET_TASK_LIST)
+            .then(response => {
+                const { tasks, totalTask, finishedTask } = response.data;
+                this.setState({
+                    tasks: tasks,
+                    finishedTask: finishedTask,
+                    totalTask: totalTask
+                })
+            })
+    }
+    changeTaskStatus = (task, id) => {
+        return () => {
+            axios({
+                method: "post",
+                url: CHANGE_TASK_STATUS,
+                data: id,
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                }
+            })
+                .then(response => {
+                    console.log(response)
+                    this.fetchData();
+                })
+        }
     }
 }
 export default TodoList;

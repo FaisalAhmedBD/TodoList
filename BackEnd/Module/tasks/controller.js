@@ -37,19 +37,21 @@ const addNewTask = (req, res) => {
     })
 }
 const changeTaskStatus = (req, res) => {
-    const { taskId } = req.body;
+    var arr = Object.keys(req.body).map(key => key);
+    console.log('arr : ', arr[0])
+    const  taskId  = arr[0];
     const condition = { _id: taskId };
     const update = { status: 2 };
     const options = {
         new: true,
         rawResult: true
     }
-    //   console.log('task id : ', taskId)
+
     tasksModel
         .findOneAndUpdate(condition, update, options)
         .then(task => {
-            //   console.log('searched task : ', task);
-            res.send(task);
+            console.log('searched task : ', task);
+            res.status(200).send();
         }).catch(error =>
             console.error(error))
 }

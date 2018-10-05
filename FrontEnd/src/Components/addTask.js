@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Form } from 'reactstrap';
+import { Form } from 'reactstrap';
 import './style.css'
-export default ({ url, inputFieldStyle }) => {
+export default ({ url }) => {
     return (
         <Form action={url} method="post" >
             <input
