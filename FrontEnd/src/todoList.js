@@ -27,7 +27,7 @@ class TodoList extends React.Component {
     render() {
         const { tasks, totalTask, finishedTask } = this.state;
         return (
-            <div>
+            <div className='col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4' style={{ backgroundColor: 'green' }}>
                 <PageHeader
                     pageTitle="Todo List" />
                 <TaskNumberIndicator
